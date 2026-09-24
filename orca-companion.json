@@ -32,7 +32,7 @@
     "codexSandbox": "danger-full-access",
     "git": {
       "remotes": ["origin"],
-      "refs": ["refs/heads/m2-wire-e2e2"]
+      "refs": ["refs/heads/m2-wire-e2e2b"]
     },
     "limits": {
       "maxActiveWorkPackages": 1,
