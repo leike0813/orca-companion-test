@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "coordinatorModels": [
+    {
+      "configurationRef": "planning-default",
+      "providerIntegration": "@langchain/openai#ChatOpenAI",
+      "model": "MiniMax-M3",
+      "modelOptions": {
+        "temperature": 0,
+        "configuration": {
+          "baseURL": "https://api.minimax.cn/v1"
+        }
+      },
+      "credentialRefs": [
+        "smoke-key"
+      ],
+      "nativeWindowOwnerRef": null
+    }
+  ],
+  "defaultCoordinatorModelRef": "planning-default",
+  "tracker": {
+    "kind": "github",
+    "routeMapIssueNumber": 1
+  },
+  "planning": {
+    "maxMutations": 8
+  },
+  "context": {
+    "maxInputTokens": 20000
+  },
+  "execution": {
+    "harness": "codex",
+    "workerModel": "minimax-cn/MiniMax-M3",
+    "codexSandbox": "danger-full-access",
+    "git": {
+      "remotes": [
+        "origin"
+      ],
+      "refs": [
+        "refs/heads/e2e13-integration"
+      ]
+    },
+    "limits": {
+      "maxActiveWorkPackages": 1,
+      "concurrencyLimit": 1,
+      "implementationAttempts": 2,
+      "validatorRepairs": 1,
+      "maxRecoveriesPerWorkerAttempt": 1
+    },
+    "acceptedRisks": [
+      "codex-sandbox-danger-full-access"
+    ]
+  }
+}
