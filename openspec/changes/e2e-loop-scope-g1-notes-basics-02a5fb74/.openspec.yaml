@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-09-27
+goal: Provide a canonical NOTES.md that documents the orca-companion demo
+  purpose and serves as the seed for later note-driven changes.
