@@ -1,5 +1,7 @@
 # orca-companion
 
+> 🎯 orca-companion is an Orca e2e-loop demonstration target for the agent harness.
+
 An e2e-loop demonstration project for the orca-companion agent harness.
 
 _More sections (Installation, Usage, etc.) will be added in later changes._
