@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-09-28
+goal: Introduce a NOTES.md entry point capturing the baseline operating notes
+  for the orca-companion e2e loop.
