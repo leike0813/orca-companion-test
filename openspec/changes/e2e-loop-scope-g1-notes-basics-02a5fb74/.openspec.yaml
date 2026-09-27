@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-09-28
+goal: Establish initial developer notes in NOTES.md so future changes can
+  reference shared conventions.
