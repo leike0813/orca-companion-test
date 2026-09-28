@@ -1,0 +1,4 @@
+schema: spec-driven
+created: 2026-09-28
+goal: Establish the README banner as a stable documentation surface scoped to
+  README.md only.
