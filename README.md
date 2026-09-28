@@ -1,5 +1,7 @@
 # orca-companion
 
+> **Status:** This is an e2e demonstration project and is not ready for production use.
+
 An e2e-loop demonstration project for the orca-companion agent harness.
 
 _More sections (Installation, Usage, etc.) will be added in later changes._
