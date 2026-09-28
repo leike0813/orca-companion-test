@@ -7,15 +7,19 @@ Define the status banner in the project's `README.md` so that a reader learns th
 ## ADDED Requirements
 
 ### Requirement: Status Banner Directly Below The Title
-`README.md` SHALL contain a status banner on the line immediately after the `# orca-companion` level-one heading, and before any other content.
+`README.md` SHALL begin with the `# orca-companion` level-one heading, and the status banner SHALL be the first content that follows it, separated only by blank lines and before any other prose.
 
 #### Scenario: Banner position in the file
 - **WHEN** `README.md` is read from the top
-- **THEN** the first line is the `# orca-companion` heading and the banner follows it directly, with no other prose in between
+- **THEN** the first line is the `# orca-companion` heading, and only blank lines separate it from the banner, which precedes every other line of prose in the file
 
 #### Scenario: Banner is missing or misplaced
 - **WHEN** the banner is absent, or appears after the descriptive paragraph
 - **THEN** `README.md` does not satisfy this requirement
+
+#### Scenario: Banner renders as part of the title
+- **WHEN** the banner line is written with no blank line separating it from the `# orca-companion` heading
+- **THEN** a Markdown renderer does not treat the banner as a separate block, and `README.md` does not satisfy this requirement
 
 ### Requirement: Banner Is A Single Blockquote Line
 The banner SHALL be written as one line prefixed with `> `, and SHALL NOT contain a second blockquote line or a bullet list.
