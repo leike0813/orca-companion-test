@@ -2,7 +2,7 @@
 
 ## Overview
 
-This file collects dated working notes — decisions worth remembering and questions still open — for the orca-companion project. New notes are appended by editing this file directly and committing the result alongside the work they describe.
+This file collects dated working notes — decisions worth remembering and questions still open — so that context which does not belong in the README is still discoverable. New notes are appended by editing this file directly and committing the result alongside the work they describe.
 
 ## Decisions
 
