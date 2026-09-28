@@ -1,3 +1,6 @@
+> **Demo of the orca-companion dispatch loop.** This repo exercises the orca harness end-to-end.
+> See [NOTES.md](NOTES.md) for developer-facing scope, intent, and conventions.
+
 # orca-companion
 
 An e2e-loop demonstration project for the orca-companion agent harness.
