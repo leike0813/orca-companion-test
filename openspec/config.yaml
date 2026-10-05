@@ -1,0 +1,6 @@
+schema: spec-driven
+
+context: |
+  This repository is driven by OpenSpec. Every behavioral change starts as a
+  change proposal with a spec delta under openspec/changes/<change-name>/ and
+  is archived into openspec/specs/ once its tasks are complete.
