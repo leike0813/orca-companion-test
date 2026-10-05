@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 3,
+  "revision": 0,
+  "providerConnections": [
+    {
+      "connectionRef": "acceptance-coordinator",
+      "label": "本机 OAuth Coordinator",
+      "providerIntegration": "@langchain/openai#ChatOpenAI",
+      "modelOptions": {
+        "temperature": 0,
+        "configuration": {
+          "baseURL": "http://127.0.0.1:10100/v1"
+        }
+      },
+      "credential": {
+        "kind": "managed",
+        "credentialRef": "69e4fadc-0592-4641-b6d1-ab1bbe6493b2",
+        "optionPath": "apiKey"
+      },
+      "codex": null
+    },
+    {
+      "connectionRef": "acceptance-worker",
+      "label": "本机 OAuth Worker Harness",
+      "providerIntegration": "@langchain/openai#ChatOpenAI",
+      "modelOptions": {
+        "temperature": 0,
+        "configuration": {
+          "baseURL": "http://127.0.0.1:10100/v1"
+        }
+      },
+      "credential": {
+        "kind": "harness_login"
+      },
+      "codex": {
+        "providerId": "companion-oauth",
+        "baseUrl": "http://127.0.0.1:10100/v1",
+        "wireApi": "responses"
+      }
+    }
+  ],
+  "models": [
+    {
+      "modelRef": "acceptance-model",
+      "connectionRef": "acceptance-coordinator",
+      "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+      "effortCapability": null
+    },
+    {
+      "modelRef": "acceptance-worker-model",
+      "connectionRef": "acceptance-worker",
+      "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+      "effortCapability": null
+    }
+  ],
+  "coordinatorModels": [
+    {
+      "configurationRef": "planning-default",
+      "providerIntegration": "@langchain/openai#ChatOpenAI",
+      "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+      "modelOptions": {
+        "temperature": 0,
+        "configuration": {
+          "baseURL": "http://127.0.0.1:10100/v1"
+        }
+      },
+      "credentialRefs": [
+        "69e4fadc-0592-4641-b6d1-ab1bbe6493b2"
+      ],
+      "nativeWindowOwnerRef": null,
+      "providerConnection": {
+        "connectionRef": "acceptance-coordinator",
+        "label": "本机 OAuth Coordinator",
+        "providerIntegration": "@langchain/openai#ChatOpenAI",
+        "modelOptions": {
+          "temperature": 0,
+          "configuration": {
+            "baseURL": "http://127.0.0.1:10100/v1"
+          }
+        },
+        "credential": {
+          "kind": "managed",
+          "credentialRef": "69e4fadc-0592-4641-b6d1-ab1bbe6493b2",
+          "optionPath": "apiKey"
+        },
+        "codex": null
+      },
+      "modelRef": "acceptance-model",
+      "effortCapability": null
+    }
+  ],
+  "defaultCoordinatorModelRef": "planning-default",
+  "tracker": {
+    "kind": "github",
+    "routeMapIssueNumber": 1
+  },
+  "planning": {
+    "maxMutations": 8
+  },
+  "context": {
+    "maxInputTokens": 20000
+  },
+  "execution": {
+    "harness": "codex",
+    "workerProfiles": [
+      {
+        "profileRef": "profile-planner",
+        "role": "planner",
+        "harness": "codex",
+        "modelConfiguration": {
+          "connection": {
+            "connectionRef": "acceptance-worker",
+            "label": "本机 OAuth Worker Harness",
+            "providerIntegration": "@langchain/openai#ChatOpenAI",
+            "modelOptions": {
+              "temperature": 0,
+              "configuration": {
+                "baseURL": "http://127.0.0.1:10100/v1"
+              }
+            },
+            "credential": {
+              "kind": "harness_login"
+            },
+            "codex": {
+              "providerId": "companion-oauth",
+              "baseUrl": "http://127.0.0.1:10100/v1",
+              "wireApi": "responses"
+            }
+          },
+          "modelRef": "acceptance-worker-model",
+          "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+          "effort": null,
+          "effortCapability": null,
+          "modelOptions": {}
+        }
+      },
+      {
+        "profileRef": "profile-implementation",
+        "role": "implementation",
+        "harness": "codex",
+        "modelConfiguration": {
+          "connection": {
+            "connectionRef": "acceptance-worker",
+            "label": "本机 OAuth Worker Harness",
+            "providerIntegration": "@langchain/openai#ChatOpenAI",
+            "modelOptions": {
+              "temperature": 0,
+              "configuration": {
+                "baseURL": "http://127.0.0.1:10100/v1"
+              }
+            },
+            "credential": {
+              "kind": "harness_login"
+            },
+            "codex": {
+              "providerId": "companion-oauth",
+              "baseUrl": "http://127.0.0.1:10100/v1",
+              "wireApi": "responses"
+            }
+          },
+          "modelRef": "acceptance-worker-model",
+          "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+          "effort": null,
+          "effortCapability": null,
+          "modelOptions": {}
+        }
+      },
+      {
+        "profileRef": "profile-validator",
+        "role": "validator",
+        "harness": "codex",
+        "modelConfiguration": {
+          "connection": {
+            "connectionRef": "acceptance-worker",
+            "label": "本机 OAuth Worker Harness",
+            "providerIntegration": "@langchain/openai#ChatOpenAI",
+            "modelOptions": {
+              "temperature": 0,
+              "configuration": {
+                "baseURL": "http://127.0.0.1:10100/v1"
+              }
+            },
+            "credential": {
+              "kind": "harness_login"
+            },
+            "codex": {
+              "providerId": "companion-oauth",
+              "baseUrl": "http://127.0.0.1:10100/v1",
+              "wireApi": "responses"
+            }
+          },
+          "modelRef": "acceptance-worker-model",
+          "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+          "effort": null,
+          "effortCapability": null,
+          "modelOptions": {}
+        }
+      },
+      {
+        "profileRef": "profile-finalizer",
+        "role": "finalizer",
+        "harness": "codex",
+        "modelConfiguration": {
+          "connection": {
+            "connectionRef": "acceptance-worker",
+            "label": "本机 OAuth Worker Harness",
+            "providerIntegration": "@langchain/openai#ChatOpenAI",
+            "modelOptions": {
+              "temperature": 0,
+              "configuration": {
+                "baseURL": "http://127.0.0.1:10100/v1"
+              }
+            },
+            "credential": {
+              "kind": "harness_login"
+            },
+            "codex": {
+              "providerId": "companion-oauth",
+              "baseUrl": "http://127.0.0.1:10100/v1",
+              "wireApi": "responses"
+            }
+          },
+          "modelRef": "acceptance-worker-model",
+          "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+          "effort": null,
+          "effortCapability": null,
+          "modelOptions": {}
+        }
+      },
+      {
+        "profileRef": "profile-recovery_utility",
+        "role": "recovery_utility",
+        "harness": "codex",
+        "modelConfiguration": {
+          "connection": {
+            "connectionRef": "acceptance-worker",
+            "label": "本机 OAuth Worker Harness",
+            "providerIntegration": "@langchain/openai#ChatOpenAI",
+            "modelOptions": {
+              "temperature": 0,
+              "configuration": {
+                "baseURL": "http://127.0.0.1:10100/v1"
+              }
+            },
+            "credential": {
+              "kind": "harness_login"
+            },
+            "codex": {
+              "providerId": "companion-oauth",
+              "baseUrl": "http://127.0.0.1:10100/v1",
+              "wireApi": "responses"
+            }
+          },
+          "modelRef": "acceptance-worker-model",
+          "model": "minimax-cn/MiniMax-M3.1-Flash-Preview",
+          "effort": null,
+          "effortCapability": null,
+          "modelOptions": {}
+        }
+      }
+    ],
+    "workerProfileRefs": {
+      "planner": "profile-planner",
+      "implementation": "profile-implementation",
+      "validator": "profile-validator",
+      "finalizer": "profile-finalizer",
+      "recovery_utility": "profile-recovery_utility"
+    },
+    "codexSandbox": "danger-full-access",
+    "git": {
+      "remotes": [
+        "origin"
+      ],
+      "refs": [
+        "refs/heads/ip05-cc-03-integration"
+      ]
+    },
+    "limits": {
+      "maxActiveWorkPackages": 5,
+      "maxWorkPackages": 8,
+      "integrationReconciliations": 2,
+      "implementationAttempts": 2,
+      "validatorRepairs": 2,
+      "graphRevisions": 2,
+      "specificationRevisions": 2,
+      "maxRecoveriesPerWorkerAttempt": 1
+    },
+    "acceptedRisks": [
+      "codex-sandbox-danger-full-access"
+    ]
+  }
+}
